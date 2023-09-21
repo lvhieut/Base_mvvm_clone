@@ -1,0 +1,191 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionCode rootProject.ext.app_version_code
+        versionName rootProject.ext.app_version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+
+        }
+        release {
+
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions 'root'
+    productFlavors {
+        mock {
+            dimension 'root'
+        }
+        dev {
+            dimension 'root'
+        }
+        product {
+            dimension 'root'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        debug.java.srcDirs += "src/debug/kotlin"
+        release.java.srcDirs += "src/release/kotlin"
+
+        mock.resources.srcDirs = ['src/mock/res']
+        dev.resources.srcDirs = ['src/dev/res']
+        product.resources.srcDirs = ['src/product/res']
+
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+
+        // Share mock text data with androidTest and test
+        String mockAssetsDir = "src/commonTest/assets"
+        test.assets.srcDir mockAssetsDir
+        androidTest.assets.srcDir mockAssetsDir
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.core:core-ktx:$rootProject.ext.lib_versions.core_ktx"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.ext.lib_versions.fragment_ktx"
+
+    // Support
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.lib_versions.appcompat"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.ext.lib_versions.support"
+    implementation "androidx.cardview:cardview:$rootProject.ext.lib_versions.cardview"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.ext.lib_versions.recyclerview"
+    implementation "com.google.android.material:material:$rootProject.ext.lib_versions.material"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.lib_versions.constraint"
+
+    // Google Architecture Component
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lib_versions.arch"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lib_versions.arch"
+
+    // Navigation Component
+    implementation "android.arch.navigation:navigation-fragment-ktx:$rootProject.ext.lib_versions.nav"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.ext.lib_versions.nav"
+
+    // Room
+    implementation "androidx.room:room-runtime:$rootProject.ext.lib_versions.room"
+    kapt "androidx.room:room-compiler:$rootProject.ext.lib_versions.room"
+
+    // Hilt dependencies
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    // Hilt ViewModel extension
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.ext.lib_versions.hilt_jetpack"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.ext.lib_versions.hilt_jetpack"
+
+    // API
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.lib_versions.okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.lib_versions.okhttp"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.lib_versions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.lib_versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$rootProject.ext.lib_versions.retrofit"
+    implementation "com.squareup.moshi:moshi-adapters:$rootProject.ext.lib_versions.moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$rootProject.ext.lib_versions.moshi"
+    implementation "com.facebook.stetho:stetho:$rootProject.ext.lib_versions.estetho"
+    implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.lib_versions.estetho"
+
+    // Chuck
+    debugImplementation "com.readystatesoftware.chuck:library:$rootProject.ext.lib_versions.chuck"
+    releaseImplementation "com.readystatesoftware.chuck:library-no-op:$rootProject.ext.lib_versions.chuck"
+
+    debugImplementation "androidx.multidex:multidex:$rootProject.ext.lib_versions.multidex"
+
+    //Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.lib_versions.rxjava"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.lib_versions.rxandroid"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.lib_versions.rxkotlin"
+
+    // test
+    testImplementation "junit:junit:$rootProject.ext.lib_versions.junit"
+    testImplementation("com.squareup.assertj:assertj-android:$rootProject.ext.lib_versions.assertj") {
+        exclude module: 'support-annotations'
+    }
+    testImplementation "org.mockito:mockito-core:$rootProject.ext.lib_versions.mockito"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.ext.lib_versions.mockito_kotlin"
+    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$rootProject.ext.kotlin_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.ext.lib_versions.mockwebserver"
+    testImplementation "commons-io:commons-io:$rootProject.ext.lib_versions.commons"
+    // robolectric
+    testImplementation "org.robolectric:robolectric:$rootProject.ext.lib_versions.robolectric"
+    testImplementation "org.robolectric:shadows-multidex:$rootProject.ext.lib_versions.robolectric"
+
+    // androidTest
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation "androidx.test:runner:$rootProject.ext.lib_versions.support_test"
+    androidTestImplementation "androidx.test:rules:$rootProject.ext.lib_versions.support_test"
+    // Espresso dependencies
+    androidTestImplementation("androidx.test.espresso:espresso-core:$rootProject.ext.lib_versions.espresso") {
+        exclude module: 'support-annotations'
+    }
+    androidTestImplementation("androidx.test.espresso:espresso-intents:$rootProject.ext.lib_versions.espresso") {
+        exclude module: 'support-annotations'
+    }
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:$rootProject.ext.lib_versions.espresso") {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-annotations'
+        exclude module: 'design'
+    }
+    androidTestUtil "androidx.test:orchestrator:$rootProject.ext.lib_versions.orchestrator"
+}

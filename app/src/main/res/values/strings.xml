@@ -1,0 +1,51 @@
+<resources>
+
+    <string name="app_name">Sample</string>
+
+    <string name="back_pressed_finish">Please press back again to quit</string>
+    <string name="network_connect_fail">Can\'t connect right now</string>
+
+    <!--Splash Screen-->
+    <string name="splash_screen">Splash Screen</string>
+
+    <!--Home Screen-->
+    <string name="home_screen">Home Screen</string>
+    <string name="home_toolbar_title">Home Title</string>
+    <string name="home_login_button_text">Login</string>
+    <string name="home_register_button_text">Register</string>
+
+    <!--Login Screen-->
+    <string name="login_screen">Login Screen</string>
+    <string name="login_toolbar_title">Login Title</string>
+    <string name="login_email_title">Email:</string>
+    <string name="login_password_title">Password:</string>
+    <string name="login_dumb_button_text">Login as Dumb User</string>
+    <string name="login_success">Login Success</string>
+    <string name="login_fail">Login Fail</string>
+
+    <!--Register Screen-->
+    <string name="register_screen">Register Screen</string>
+    <string name="register_toolbar_title">Register Title</string>
+
+    <!--Main Screen-->
+    <string name="main_screen">Main Screen</string>
+    <string name="main_toolbar_title">Main Title</string>
+
+    <!--Home Feed-->
+    <string name="post_load_error_title">Can\'t Connect</string>
+
+    <string name="one_toolbar_title">One</string>
+    <string name="two_toolbar_title">Two</string>
+    <string name="three_toolbar_title">Three</string>
+
+    <!--Setting Screen-->
+    <string name="setting_screen">Setting Screen</string>
+    <string name="setting_toolbar_title">Setting Title</string>
+    <string name="setting_logout_button_text">Logout</string>
+
+    <!--Logout Screen-->
+    <string name="logout_screen">Logout Screen</string>
+    <string name="logout_success">Logout Success</string>
+    <string name="logout_fail">Logout Fail</string>
+
+</resources>

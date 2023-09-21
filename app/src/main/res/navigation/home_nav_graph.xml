@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/loinFragment">
+
+    <fragment
+        android:id="@+id/settingLanguageFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.setting_language.SettingLanguageFragment"
+        android:label="SettingLanguageFragment" />
+
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.onboarding.OnBoardingFragment"
+        android:label="OnBoardingFragment" />
+
+    <fragment
+        android:id="@+id/loinFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.home.fragment.login.LoginFragment"
+        android:label="loinFragment" />
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.sign_up.SignUpFragment"
+        android:label="SignUpFragment" />
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.MainActivity"
+        android:label="MainActivity" />
+
+    <action
+        android:id="@+id/openSignUp"
+        app:destination="@id/signUpFragment" />
+
+    <action
+        android:id="@+id/openOnBoarding"
+        app:destination="@id/onBoardingFragment" />
+
+    <action
+        android:id="@+id/openSettingLanguage"
+        app:destination="@id/settingLanguageFragment" />
+
+    <action
+        android:id="@+id/openMain"
+        app:destination="@id/mainActivity" />
+</navigation>

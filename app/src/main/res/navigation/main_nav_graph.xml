@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/mainNavFragment">
+
+    <fragment
+        android:id="@+id/mainNavFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.main_nav.MainNavFragment"
+        android:label="MainNavFragment"
+        tools:layout="@layout/fragment_main_nav" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.setting.SettingFragment"
+        android:label="SettingFragment" />
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.hieunv.mvvmarch.sample.ui.home.HomeActivity"
+        android:label="HomeActivity" />
+
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.hieunv.mvvmarch.sample.ui.splash.SplashActivity"
+        android:label="SplashActivity" />
+
+    <fragment
+        android:id="@+id/settingLanguageFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.setting_language.SettingLanguageFragment"
+        android:label="SettingLanguageFragment" />
+
+    <fragment
+        android:id="@+id/addFriendFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.add_friend.AddFriendFragment"
+        android:label="AddFriendFragment" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.chat.ChatFragment"
+        android:label="ChatFragment" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+
+    <fragment
+        android:id="@+id/friendsFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.friends.FriendsFragment"
+        android:label="FriendsFragment" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.fragment.search.SearchFragment"
+        android:label="SearchFragment" />
+
+    <action
+        android:id="@+id/goToFriends"
+        app:destination="@id/friendsFragment" />
+
+    <action
+        android:id="@+id/goToSearch"
+        app:destination="@id/searchFragment" />
+
+    <action
+        android:id="@+id/goToAddFriend"
+        app:destination="@id/addFriendFragment" />
+
+    <action
+        android:id="@+id/goToChat"
+        app:destination="@id/chatFragment" />
+
+    <action
+        android:id="@+id/goToProfile"
+        app:destination="@id/profileFragment" />
+
+    <action
+        android:id="@+id/openSetting"
+        app:destination="@id/settingFragment" />
+
+    <action
+        android:id="@+id/backToSplash"
+        app:destination="@id/splashActivity" />
+
+    <action
+        android:id="@+id/goToSettingLanguage"
+        app:destination="@+id/settingLanguageFragment" />
+
+    <action
+        android:id="@+id/backToHome"
+        app:destination="@id/homeActivity" />
+</navigation>

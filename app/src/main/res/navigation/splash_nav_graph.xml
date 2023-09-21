@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splash_nav_graph"
+    app:startDestination="@id/splashNavFragment">
+
+    <fragment
+        android:id="@+id/splashNavFragment"
+        android:name="com.hieunv.mvvmarch.sample.ui.splash.fragment.SplashNavFragment"
+        android:label="SplashFragment" />
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.hieunv.mvvmarch.sample.ui.home.HomeActivity"
+        android:label="HomeActivity" />
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.hieunv.mvvmarch.sample.ui.main.MainActivity"
+        android:label="MainActivity" />
+
+    <action
+        android:id="@+id/openHome"
+        app:destination="@id/homeActivity" />
+
+    <action
+        android:id="@+id/openMain"
+        app:destination="@id/mainActivity" />
+
+
+</navigation>

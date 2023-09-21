@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#566169</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="touch_color">#CCD022</color>
+    <color name="button_disable_color">#CCCCCC</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="transparent_haft">#80FFFFFF</color>
+    <color name="transparent_haft_black">#80000000</color>
+
+    <color name="gray_text_color">#FF454852</color>
+    <color name="gray_text_color_light">#FF999CA3</color>
+    <color name="gray_text_color_blur">#FF999999</color>
+    <color name="gray_text_color_hint">#FFCCCCCC</color>
+
+    <color name="background_default_color">#FFF9FAFC</color>
+
+    <color name="default_item_color">#CFCFCF</color>
+
+</resources>
